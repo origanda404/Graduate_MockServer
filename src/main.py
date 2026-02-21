@@ -1,0 +1,39 @@
+import flet as ft
+
+from screens.welcome_screen import WelcomeScreen
+from screens.login_screen import LoginScreen
+
+
+# Setup App 
+def main(page: ft.Page):
+    page.title = "Graduate Student Tracking System"
+    page.window.width = 402
+    page.window.height = 874
+
+    # Setup Navigation and Routing
+    def route_change(route):
+        t_route = ft.TemplateRoute(page.route)
+
+        if t_route.match("/"):
+            page.views.clear()
+            page.views.append(WelcomeScreen(page))
+
+        elif t_route.match("/login"):
+            page.views.append(LoginScreen(page))
+
+        
+        
+        page.update()
+
+    def view_pop(view):
+        page.views.pop()
+        top_view = page.views[-1]
+        page.go(top_view.route)
+
+    page.on_route_change = route_change
+    page.on_view_pop = view_pop
+
+    page.go("/")
+
+
+ft.app(target=main, assets_dir="assets")
