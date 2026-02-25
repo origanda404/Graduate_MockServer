@@ -20,3 +20,4 @@ class AppTextField(ft.TextField):
         self.border_color = "transparent"
         self.text_size = 16
         self.color = "#000000"
+        

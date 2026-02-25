@@ -1,12 +1,14 @@
 #src/main.py --> This is Application!!!
 import flet as ft
-
 from screens.welcome_screen import WelcomeScreen
 from screens.login_screen import LoginScreen
+from screens.advisor.advisor_home import AdvisorHome
+from screens.student.student_home import StudentHome
 
 
 # Setup App 
 def main(page: ft.Page):
+    print("[Info] Graduate Student Tracking System Starting...")
     page.title = "Graduate Student Tracking System"
     page.window.width = 402
     page.window.height = 874
@@ -21,6 +23,12 @@ def main(page: ft.Page):
 
         elif t_route.match("/login"):
             page.views.append(LoginScreen(page))
+        
+        elif t_route.match("/advisor_home"):
+            page.views.append(AdvisorHome(page))
+        
+        elif t_route.match("/student_home"):
+            page.views.append(StudentHome(page))
 
         
         

@@ -3,7 +3,7 @@ import flet as ft
 from components.buttons import PrimaryButton
 
 def WelcomeScreen(page: ft.Page):
-
+    print("[INFO] WelcomeScreen")
     # กำหนดตัวแปรต่างๆ ที่ใช้ในหน้าจอ Welcome
     # โลโก้ข้อความ
     text_logo = ft.Container(
@@ -12,7 +12,7 @@ def WelcomeScreen(page: ft.Page):
     )
     welcome_btn = PrimaryButton(
         text="WELCOME",
-        on_click=lambda e: page.go("/login"),
+        on_click=lambda e: page.go("/login", print("[INFO] WELCOME BUTTON IS CLICKED")),
         padding=ft.padding.symmetric(horizontal=30, vertical=20)
     )
     # จัดกลุ่มโลโก้และปุ่ม WELCOME เข้าด้วยกัน
